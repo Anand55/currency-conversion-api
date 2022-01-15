@@ -11,8 +11,9 @@ import (
 
 func main() {
 	r := mux.NewRouter()
-	redis.Init("localhost:6379", 0)
+	redis.Init("redis:6379", 0)
 	defer redis.Close()
+	log.Println("Starting server...")
 	routes.RegisterRoute(r)
 	log.Fatal(http.ListenAndServe(":8080", r))
 }
