@@ -52,6 +52,9 @@ func (c *currencyExhanger) ConvertCurrency(convertReq ConvertRequest) (ConvertRe
 
 	body, err := ioutil.ReadAll(res.Body)
 	rdata := getRates(body)
+	if convertReq.Amount == 0{
+		convertReq.Amount = 1
+	}
 	convertedResult, err := convert(convertReq.From, convertReq.To, convertReq.Amount, rdata)
 	if err != nil {
 		log.Println("Error fetching converted result", err)

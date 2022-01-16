@@ -27,7 +27,7 @@ func IsAuthorized(next http.Handler) http.Handler {
 			return
 		}
 
-		if redisVal > 5 {
+		if redisVal > 15 {
 			w.WriteHeader(http.StatusUnauthorized)
 			w.Write([]byte("Unauthorised User, API access limit exceeded"))
 			return
