@@ -11,7 +11,8 @@ RUN go mod download
 
 COPY . .
 
-ENV FIXER_KEY 1fe73a0bf57fa882382b2b7d18067c05
+ENV FIXER_KEY d244f7d57ffda45bc7b3b39e1ae75d0d
+ENV REDIS_ADDR redis:6379
 
 RUN go build -o conversion-api ./cmd 
 
